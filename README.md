@@ -2,6 +2,15 @@
 
 A multi-agent AI system for scientific literature research, analysis, and synthesis. The application fetches academic articles from Semantic Scholar, analyzes them using LLMs, and generates comprehensive, cited responses to user queries.
 
+> **TL;DR** — Ask a research question, get a cited answer built from real papers. An LLM orchestrator with a reflection loop decides when to search Semantic Scholar, when to retrieve from the RAG store and when to synthesize.
+>
+> - **Reasoning separated from execution**: the orchestrator only outputs strict JSON instructions, which the server interprets deterministically to call search, RAG and synthesis
+> - **Full traceability**: every claim in the answer is linked to the article it comes from
+> - **Observable**: the chat UI streams each pipeline step, tokens per agent, cost and latency
+> - **Evaluated** on 7 scenarios (human-judged quality, tokens, latency), with an analysis of its limits: synthesis cost, sequential latency, small-model context
+>
+> *EPITA academic team project (3 people) · Python, FastAPI, LangChain, FAISS, Ollama (mxbai-embed-large), Mistral API*
+
 ## 🌟 Features
 
 - **Intelligent Research**: Automatically searches Semantic Scholar for relevant academic articles
@@ -57,8 +66,8 @@ A multi-agent AI system for scientific literature research, analysis, and synthe
 
 1. **Clone the repository**
 ```bash
-git clone <repository-url>
-cd AGENTIC-LLM-language-teacher
+git clone https://github.com/JulesRD/AGENTIC-LLM-research-assistant.git
+cd AGENTIC-LLM-research-assistant
 ```
 
 2. **Create a virtual environment**
